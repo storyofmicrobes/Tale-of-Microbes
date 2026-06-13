@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gene Prospera Academy LMS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div><h1>Gene Prospera Academy LMS</h1><p>Learn. Build. Certify.</p></div>
+  <nav><button onclick="showPage('home')">Home</button><button onclick="showPage('courses')">Courses</button><button onclick="showPage('dashboard')">Dashboard</button><button id="adminBtn" class="hidden" onclick="showPage('admin')">Admin</button><button id="logoutBtn" class="hidden" onclick="logout()">Logout</button></nav>
+</header>
+<main>
+  <section id="home" class="page hero">
+    <div class="heroText"><h2>Biotechnology & AI Learning Portal</h2><p>A Be10X-style LMS framework for structured courses, video lessons, quizzes, assignments, projects, progress tracking and certificates.</p><button onclick="showPage('courses')">Explore Courses</button></div>
+    <div class="loginCard card" id="authCard">
+      <h3>Login</h3><input id="email" placeholder="Email" value="geneprosperabiotech@gmail.com"><input id="password" type="password" placeholder="Password" value="admin1234"><button onclick="login()">Login</button>
+      <details><summary>New student registration</summary><input id="rname" placeholder="Student name"><input id="remail" placeholder="Email"><input id="rphone" placeholder="Phone"><input id="rpass" type="password" placeholder="Password"><button onclick="register()">Create Account</button></details>
+      <p class="hint">Demo student: student@example.com / student123</p>
+    </div>
+  </section>
+
+  <section id="courses" class="page hidden"><h2>Course Catalogue</h2><div id="courseGrid" class="courseGrid"></div></section>
+  <section id="dashboard" class="page hidden"><h2>My Learning Dashboard</h2><div id="dashboardContent"></div></section>
+  <section id="courseDetail" class="page hidden"><div id="courseDetailContent"></div></section>
+  <section id="quizPage" class="page hidden"><div id="quizContent"></div></section>
+
+  <section id="admin" class="page hidden"><h2>Admin Dashboard</h2><div id="adminStats" class="stats"></div>
+    <div class="card"><h3>Add New Course</h3><div class="grid"><input id="ctitle" placeholder="Course title"><input id="ccategory" placeholder="Category"><input id="clevel" placeholder="Level"><input id="cduration" placeholder="Duration"><input id="cprice" placeholder="Price"><input id="coutcomes" placeholder="Outcomes separated by |"></div><textarea id="cdescription" placeholder="Course description"></textarea><button onclick="addCourse()">Add Course</button></div>
+    <div class="card"><h3>Add Module</h3><div class="grid"><input id="mcourse" placeholder="Course ID"><input id="mtitle" placeholder="Module title"><input id="mposition" placeholder="Position"></div><button onclick="addModule()">Add Module</button></div>
+    <div class="card"><h3>Add Lesson</h3><div class="grid"><input id="lcourse" placeholder="Course ID"><input id="lmodule" placeholder="Module ID"><input id="ltitle" placeholder="Lesson title"><select id="ltype"><option>video</option><option>document</option><option>project</option></select><input id="lvideo" placeholder="YouTube/Vimeo embed URL"><input id="lresource" placeholder="PDF/resource URL"></div><textarea id="lcontent" placeholder="Lesson content/instructions"></textarea><button onclick="addLesson()">Add Lesson</button></div>
+    <div class="card"><h3>Users</h3><div class="tableWrap"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead><tbody id="userRows"></tbody></table></div></div>
+    <div class="card"><h3>Assignment Submissions</h3><div class="tableWrap"><table><thead><tr><th>Student</th><th>Assignment</th><th>Submission</th><th>Date</th></tr></thead><tbody id="submissionRows"></tbody></table></div></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
